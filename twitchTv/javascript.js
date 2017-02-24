@@ -1,36 +1,38 @@
-var playerList = ["ESL_SC2","cozzaro","OgamingSC2","freecodecamp"];
-var logo;
-var status;
-var name;
+let playerList = ["ESL_SC2","cozzaro","OgamingSC2", "freecodecamp"];
+let i = 0;
 $(document).ready(function(){
 
-  for(var i=0; i<playerList.length; i++){
-    var url = "https://wind-bow.gomix.me/twitch-api/streams/"+ playerList[i];
-    var url2 = "https://wind-bow.gomix.me/twitch-api/channels/"+ playerList[i];
+  while(i<4){
+    let url = "https://wind-bow.gomix.me/twitch-api/streams/"+ playerList[i];
+    let url2 = "https://wind-bow.gomix.me/twitch-api/channels/"+ playerList[i];
     $.getJSON(url,function(data){
       if(data.stream === null){
         $.getJSON(url2, function(data2){
-          var logo2=data2.logo;
-          var status2="OFFLINE";
-          var name2=data2.display_name;
+          let logo2=data2.logo;
+          let status2="OFFLINE";
+          let name2=data2.display_name;
+          let urltoStream2=data2.url;
           $("#followerInfo").prepend("<div class = 'row'>"+ "<div class='col-md-4'>"+
           "<img src='" + logo2 +"'>"
           +
-          "</div>" + "<div class='col-md-4'>" + name2 + "</div>" + "<div class='col-md-4'>" + status2 + "</div></div>");
+          "</div>" + "<div class='col-md-4'>" +"<a href='urltoStream2'>"+ name2+ "</a>"+ "</div>" + "<div class='col-md-4'>" + status2 + "</div></div>");
         });
 
       }
       else{
-        logo=data.stream.channel.logo;
-        status=data.stream.channel.status;
-        name=data.stream.channel.display_name;
+        let logo=data.stream.channel.logo;
+
+        let status=data.stream.channel.status;
+        let name=data.stream.channel.display_name;
+        let urltoStream=data.stream.channel.url;
         $("#followerInfo").prepend("<div class = 'row'>"+ "<div class='col-md-4'>"+
         "<img src='" + logo +"'>"
         +
-        "</div>" + "<div class='col-md-4'>" + name + "</div>" + "<div class='col-md-4'>" + status + "</div></div>");
+        "</div>" + "<div class='col-md-4'>" +"<a href='urltoStream'>"+ name+ "</a>"+ "</div>" + "<div class='col-md-4'>" + status + "</div></div>");
       }
 
     });
+    i++;
   };
 
 })
