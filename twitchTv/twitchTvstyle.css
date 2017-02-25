@@ -1,0 +1,39 @@
+h3{
+  margin-top: 7.5%;
+  color: #6441A5;
+}
+
+h4{
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
+  color: #6441A5;
+}
+
+.jumbotron{
+  margin-top: 2.5%;
+  margin-left: 5%;
+  margin-right:5%;
+}
+
+#followerInfo{
+  color: #6441A5;
+}
+
+img{
+  width: 100px;
+  border-radius: 50%;
+}
+
+.col-md-4{
+  padding: 10px;
+
+}
+
+.row{
+  background: rgba(0,0,0,0);
+  border: 2px solid;
+  border-radius: 25px;
+  margin-bottom: 5px;
+  border-color: white;
+
+}
